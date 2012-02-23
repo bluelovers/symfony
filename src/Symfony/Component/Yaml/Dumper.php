@@ -16,7 +16,7 @@ namespace Symfony\Component\Yaml;
  *
  * @author Fabien Potencier <fabien@symfony.com>
  */
-class Dumper
+class Symfony_Component_Yaml_Dumper
 {
     /**
      * Dumps a PHP value to YAML.
