@@ -51,7 +51,7 @@ class Symfony_Component_Yaml_Parser
         $this->lines = explode("\n", $this->cleanup($value));
 
         if (function_exists('mb_detect_encoding') && false === mb_detect_encoding($value, 'UTF-8', true)) {
-            throw new Symfony_Component_Yaml_ParseException('The YAML value does not appear to be valid UTF-8.');
+            throw new Symfony_Component_Yaml_Exception_ParseException('The YAML value does not appear to be valid UTF-8.');
         }
 
         if (function_exists('mb_internal_encoding') && ((int) ini_get('mbstring.func_overload')) & 2) {
@@ -67,7 +67,7 @@ class Symfony_Component_Yaml_Parser
 
             // tab?
             if ("\t" === $this->currentLine[0]) {
-                throw new Symfony_Component_Yaml_ParseException('A YAML file cannot contain tabs as indentation.', $this->getRealCurrentLineNb() + 1, $this->currentLine);
+                throw new Symfony_Component_Yaml_Exception_ParseException('A YAML file cannot contain tabs as indentation.', $this->getRealCurrentLineNb() + 1, $this->currentLine);
             }
 
             $isRef = $isInPlace = $isProcessed = false;
@@ -106,7 +106,7 @@ class Symfony_Component_Yaml_Parser
             } elseif (preg_match('#^(?P<key>'.Symfony_Component_Yaml_Inline::REGEX_QUOTED_STRING.'|[^ \'"\[\{].*?) *\:(\s+(?P<value>.+?))?\s*$#u', $this->currentLine, $values)) {
                 try {
                     $key = Symfony_Component_Yaml_Inline::parseScalar($values['key']);
-                } catch (Symfony_Component_Yaml_ParseException $e) {
+                } catch (Symfony_Component_Yaml_Exception_ParseException $e) {
                     $e->setParsedLine($this->getRealCurrentLineNb() + 1);
                     $e->setSnippet($this->currentLine);
 
@@ -117,7 +117,7 @@ class Symfony_Component_Yaml_Parser
                     if (isset($values['value']) && 0 === strpos($values['value'], '*')) {
                         $isInPlace = substr($values['value'], 1);
                         if (!array_key_exists($isInPlace, $this->refs)) {
-                            throw new Symfony_Component_Yaml_ParseException(sprintf('Reference "%s" does not exist.', $isInPlace), $this->getRealCurrentLineNb() + 1, $this->currentLine);
+                            throw new Symfony_Component_Yaml_Exception_ParseException(sprintf('Reference "%s" does not exist.', $isInPlace), $this->getRealCurrentLineNb() + 1, $this->currentLine);
                         }
                     } else {
                         if (isset($values['value']) && $values['value'] !== '') {
@@ -132,12 +132,12 @@ class Symfony_Component_Yaml_Parser
 
                         $merged = array();
                         if (!is_array($parsed)) {
-                            throw new Symfony_Component_Yaml_ParseException('YAML merge keys used with a scalar value instead of an array.', $this->getRealCurrentLineNb() + 1, $this->currentLine);
+                            throw new Symfony_Component_Yaml_Exception_ParseException('YAML merge keys used with a scalar value instead of an array.', $this->getRealCurrentLineNb() + 1, $this->currentLine);
                         } elseif (isset($parsed[0])) {
                             // Numeric array, merge individual elements
                             foreach (array_reverse($parsed) as $parsedItem) {
                                 if (!is_array($parsedItem)) {
-                                    throw new Symfony_Component_Yaml_ParseException('Merge items must be arrays.', $this->getRealCurrentLineNb() + 1, $parsedItem);
+                                    throw new Symfony_Component_Yaml_Exception_ParseException('Merge items must be arrays.', $this->getRealCurrentLineNb() + 1, $parsedItem);
                                 }
                                 $merged = array_merge($parsedItem, $merged);
                             }
@@ -179,7 +179,7 @@ class Symfony_Component_Yaml_Parser
                 if (2 == count($this->lines) && empty($this->lines[1])) {
                     try {
                         $value = Symfony_Component_Yaml_Inline::parse($this->lines[0]);
-                    } catch (Symfony_Component_Yaml_ParseException $e) {
+                    } catch (Symfony_Component_Yaml_Exception_ParseException $e) {
                         $e->setParsedLine($this->getRealCurrentLineNb() + 1);
                         $e->setSnippet($this->currentLine);
 
@@ -224,7 +224,7 @@ class Symfony_Component_Yaml_Parser
                         $error = 'Unable to parse.';
                 }
 
-                throw new Symfony_Component_Yaml_ParseException($error, $this->getRealCurrentLineNb() + 1, $this->currentLine);
+                throw new Symfony_Component_Yaml_Exception_ParseException($error, $this->getRealCurrentLineNb() + 1, $this->currentLine);
             }
 
             if ($isRef) {
@@ -276,7 +276,7 @@ class Symfony_Component_Yaml_Parser
             $newIndent = $this->getCurrentLineIndentation();
 
             if (!$this->isCurrentLineEmpty() && 0 == $newIndent) {
-                throw new Symfony_Component_Yaml_ParseException('Indentation problem.', $this->getRealCurrentLineNb() + 1, $this->currentLine);
+                throw new Symfony_Component_Yaml_Exception_ParseException('Indentation problem.', $this->getRealCurrentLineNb() + 1, $this->currentLine);
             }
         } else {
             $newIndent = $indentation;
@@ -305,7 +305,7 @@ class Symfony_Component_Yaml_Parser
 
                 break;
             } else {
-                throw new Symfony_Component_Yaml_ParseException('Indentation problem.', $this->getRealCurrentLineNb() + 1, $this->currentLine);
+                throw new Symfony_Component_Yaml_Exception_ParseException('Indentation problem.', $this->getRealCurrentLineNb() + 1, $this->currentLine);
             }
         }
 
@@ -355,7 +355,7 @@ class Symfony_Component_Yaml_Parser
             }
 
             if (!array_key_exists($value, $this->refs)) {
-                throw new Symfony_Component_Yaml_ParseException(sprintf('Reference "%s" does not exist.', $value), $this->currentLine);
+                throw new Symfony_Component_Yaml_Exception_ParseException(sprintf('Reference "%s" does not exist.', $value), $this->currentLine);
             }
 
             return $this->refs[$value];
@@ -369,7 +369,7 @@ class Symfony_Component_Yaml_Parser
 
         try {
             return Symfony_Component_Yaml_Inline::parse($value);
-        } catch (Symfony_Component_Yaml_ParseException $e) {
+        } catch (Symfony_Component_Yaml_Exception_ParseException $e) {
             $e->setParsedLine($this->getRealCurrentLineNb() + 1);
             $e->setSnippet($this->currentLine);
 
