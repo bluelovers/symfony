@@ -175,7 +175,7 @@ class Symfony_Component_Yaml_Inline
                 $output = $match[1];
                 $i += strlen($output);
             } else {
-                throw new Symfony_Component_Yaml_ParseException(sprintf('Malformed inline YAML string (%s).', $scalar));
+                throw new Symfony_Component_Yaml_Exception_ParseException(sprintf('Malformed inline YAML string (%s).', $scalar));
             }
 
             $output = $evaluate ? self::evaluateScalar($output) : $output;
@@ -197,7 +197,7 @@ class Symfony_Component_Yaml_Inline
     static private function parseQuotedScalar($scalar, &$i)
     {
         if (!preg_match('/'.self::REGEX_QUOTED_STRING.'/Au', substr($scalar, $i), $match)) {
-            throw new Symfony_Component_Yaml_ParseException(sprintf('Malformed inline YAML string (%s).', substr($scalar, $i)));
+            throw new Symfony_Component_Yaml_Exception_ParseException(sprintf('Malformed inline YAML string (%s).', substr($scalar, $i)));
         }
 
         $output = substr($match[0], 1, strlen($match[0]) - 2);
@@ -267,7 +267,7 @@ class Symfony_Component_Yaml_Inline
             ++$i;
         }
 
-        throw new Symfony_Component_Yaml_ParseException(sprintf('Malformed inline YAML string %s', $sequence));
+        throw new Symfony_Component_Yaml_Exception_ParseException(sprintf('Malformed inline YAML string %s', $sequence));
     }
 
     /**
@@ -331,7 +331,7 @@ class Symfony_Component_Yaml_Inline
             }
         }
 
-        throw new Symfony_Component_Yaml_ParseException(sprintf('Malformed inline YAML string %s', $mapping));
+        throw new Symfony_Component_Yaml_Exception_ParseException(sprintf('Malformed inline YAML string %s', $mapping));
     }
 
     /**
