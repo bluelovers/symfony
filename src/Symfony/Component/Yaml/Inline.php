@@ -98,7 +98,7 @@ class Symfony_Component_Yaml_Inline
                 }
 
                 return $repr;
-            case Escaper::requiresDoubleQuoting($value):
+            case Symfony_Component_Yaml_Escaper::requiresDoubleQuoting($value):
                 return Escaper::escapeWithDoubleQuotes($value);
             case Escaper::requiresSingleQuoting($value):
                 return Escaper::escapeWithSingleQuotes($value);
