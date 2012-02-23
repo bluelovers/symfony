@@ -126,7 +126,7 @@ class Symfony_Component_Yaml_Parser
                             $value = $this->getNextEmbedBlock();
                         }
                         $c = $this->getRealCurrentLineNb() + 1;
-                        $parser = new Parser($c);
+                        $parser = new Symfony_Component_Yaml_Parser($c);
                         $parser->refs =& $this->refs;
                         $parsed = $parser->parse($value);
 
