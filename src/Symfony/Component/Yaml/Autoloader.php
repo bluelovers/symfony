@@ -20,7 +20,7 @@ class Symfony_Component_Yaml_Autoloader
 	 */
 	public function autoload($class)
 	{
-		if (0 !== strpos($class, 'sfTemplate'))
+		if (0 !== strpos($class, 'Symfony_Component_Yaml_'))
 		{
 			return false;
 		}
