@@ -16,7 +16,7 @@ namespace Symfony\Component\Yaml;
  *
  * @author Matthew Lewinski <matthew@lewinski.org>
  */
-class Escaper
+class Symfony_Component_Yaml_Escaper
 {
     // Characters that would cause a dumped string to require double quoting.
     const REGEX_CHARACTER_TO_ESCAPE = "[\\x00-\\x1f]|\xc2\x85|\xc2\xa0|\xe2\x80\xa8|\xe2\x80\xa9";
