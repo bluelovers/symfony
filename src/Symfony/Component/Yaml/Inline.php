@@ -18,7 +18,7 @@ use Symfony\Component\Yaml\Exception\DumpException;
  *
  * @author Fabien Potencier <fabien@symfony.com>
  */
-class Inline
+class Symfony_Component_Yaml_Inline
 {
     const REGEX_QUOTED_STRING = '(?:"([^"\\\\]*(?:\\\\.[^"\\\\]*)*)"|\'([^\']*(?:\'\'[^\']*)*)\')';
 
