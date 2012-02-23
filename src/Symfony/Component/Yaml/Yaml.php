@@ -20,7 +20,7 @@ use Symfony\Component\Yaml\Exception\ParseException;
  *
  * @api
  */
-class Yaml
+class Symfony_Component_Yaml_Yaml
 {
     static public $enablePhpParsing = false;
 
