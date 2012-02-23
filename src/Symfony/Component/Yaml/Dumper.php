@@ -42,7 +42,7 @@ class Symfony_Component_Yaml_Dumper
 
                 $output .= sprintf('%s%s%s%s',
                     $prefix,
-                    $isAHash ? Inline::dump($key).':' : '-',
+                    $isAHash ? Symfony_Component_Yaml_Inline::dump($key).':' : '-',
                     $willBeInlined ? ' ' : "\n",
                     $this->dump($value, $inline - 1, $willBeInlined ? 0 : $indent + 4)
                 ).($willBeInlined ? "\n" : '');
