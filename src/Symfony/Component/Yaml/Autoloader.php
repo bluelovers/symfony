@@ -7,8 +7,13 @@ class Symfony_Component_Yaml_Autoloader
 	 */
 	static public function register()
 	{
-		ini_set('unserialize_callback_func', 'spl_autoload_call');
+		//ini_set('unserialize_callback_func', 'spl_autoload_call');
 		spl_autoload_register(array(new self, 'autoload'));
+	}
+
+	static public function unregister()
+	{
+		spl_autoload_unregister(array(new self, 'autoload'));
 	}
 
 	/**
