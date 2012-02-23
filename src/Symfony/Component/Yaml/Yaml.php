@@ -104,7 +104,7 @@ class Symfony_Component_Yaml_Yaml
      */
     static public function dump($array, $inline = 2)
     {
-        $yaml = new Dumper();
+        $yaml = new Symfony_Component_Yaml_Dumper();
 
         return $yaml->dump($array, $inline);
     }
