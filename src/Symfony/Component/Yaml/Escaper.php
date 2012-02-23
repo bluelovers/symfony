@@ -8,7 +8,7 @@
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\Yaml;
+//namespace Symfony\Component\Yaml;
 
 /**
  * Escaper encapsulates escaping rules for single and double-quoted
