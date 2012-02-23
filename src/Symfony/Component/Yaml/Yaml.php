@@ -11,7 +11,7 @@
 
 //namespace Symfony\Component\Yaml;
 
-use Symfony\Component\Yaml\Exception\ParseException;
+//use Symfony\Component\Yaml\Exception\ParseException;
 
 /**
  * Yaml offers convenience methods to load and dump YAML.

@@ -10,7 +10,7 @@
 
 //namespace Symfony\Component\Yaml;
 
-use Symfony\Component\Yaml\Exception\ParseException;
+//use Symfony\Component\Yaml\Exception\ParseException;
 
 /**
  * Parser parses YAML strings to convert them to PHP arrays.
