@@ -17,7 +17,7 @@ use Symfony\Component\Yaml\Exception\ParseException;
  *
  * @author Fabien Potencier <fabien@symfony.com>
  */
-class Parser
+class Symfony_Component_Yaml_Parser
 {
     private $offset         = 0;
     private $lines          = array();
