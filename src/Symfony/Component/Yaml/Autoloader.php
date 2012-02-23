@@ -29,6 +29,10 @@ class Symfony_Component_Yaml_Autoloader
 
 		require dirname(__FILE__) . '/' . $_class . '.php';
 
+		if (!class_exists($class) && !interface_exists($class) && (!function_exists('trait_exists') || !trait_exists($class))) {
+            throw new InvalidArgumentException(sprintf('Unable to load class "%s"', $class));
+        }
+
 		return true;
 	}
 }
