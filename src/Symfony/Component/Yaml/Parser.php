@@ -163,7 +163,7 @@ class Symfony_Component_Yaml_Parser
                         $data[$key] = null;
                     } else {
                         $c = $this->getRealCurrentLineNb() + 1;
-                        $parser = new Parser($c);
+                        $parser = new Symfony_Component_Yaml_Parser($c);
                         $parser->refs =& $this->refs;
                         $data[$key] = $parser->parse($this->getNextEmbedBlock());
                     }
