@@ -101,7 +101,7 @@ class Symfony_Component_Yaml_Inline
             case Symfony_Component_Yaml_Escaper::requiresDoubleQuoting($value):
                 return Symfony_Component_Yaml_Escaper::escapeWithDoubleQuotes($value);
             case Symfony_Component_Yaml_Escaper::requiresSingleQuoting($value):
-                return Escaper::escapeWithSingleQuotes($value);
+                return Symfony_Component_Yaml_Escaper::escapeWithSingleQuotes($value);
             case '' == $value:
                 return "''";
             case preg_match(self::getTimestampRegex(), $value):
