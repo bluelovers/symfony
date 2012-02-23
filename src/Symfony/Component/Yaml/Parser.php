@@ -117,7 +117,7 @@ class Symfony_Component_Yaml_Parser
                     if (isset($values['value']) && 0 === strpos($values['value'], '*')) {
                         $isInPlace = substr($values['value'], 1);
                         if (!array_key_exists($isInPlace, $this->refs)) {
-                            throw new ParseException(sprintf('Reference "%s" does not exist.', $isInPlace), $this->getRealCurrentLineNb() + 1, $this->currentLine);
+                            throw new Symfony_Component_Yaml_ParseException(sprintf('Reference "%s" does not exist.', $isInPlace), $this->getRealCurrentLineNb() + 1, $this->currentLine);
                         }
                     } else {
                         if (isset($values['value']) && $values['value'] !== '') {
