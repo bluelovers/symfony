@@ -55,7 +55,7 @@ class Symfony_Component_Yaml_Yaml
         $file = '';
         if (strpos($input, "\n") === false && is_file($input)) {
             if (false === is_readable($input)) {
-                throw new Symfony_Component_Yaml_ParseException(sprintf('Unable to parse "%s" as the file is not readable.', $input));
+                throw new Symfony_Component_Yaml_Exception_ParseException(sprintf('Unable to parse "%s" as the file is not readable.', $input));
             }
 
             $file = $input;
@@ -80,7 +80,7 @@ class Symfony_Component_Yaml_Yaml
 
         try {
             return $yaml->parse($input);
-        } catch (Symfony_Component_Yaml_ParseException $e) {
+        } catch (Symfony_Component_Yaml_Exception_ParseException $e) {
             if ($file) {
                 $e->setParsedFile($file);
             }
