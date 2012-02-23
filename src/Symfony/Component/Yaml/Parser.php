@@ -178,7 +178,7 @@ class Symfony_Component_Yaml_Parser
                 // 1-liner followed by newline
                 if (2 == count($this->lines) && empty($this->lines[1])) {
                     try {
-                        $value = Inline::parse($this->lines[0]);
+                        $value = Symfony_Component_Yaml_Inline::parse($this->lines[0]);
                     } catch (ParseException $e) {
                         $e->setParsedLine($this->getRealCurrentLineNb() + 1);
                         $e->setSnippet($this->currentLine);
