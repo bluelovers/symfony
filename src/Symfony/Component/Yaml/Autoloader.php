@@ -25,6 +25,8 @@ class Symfony_Component_Yaml_Autoloader
 			return false;
 		}
 
+		$class = str_replace('_', '/', str_replace('Symfony_Component_Yaml_', '', $class));
+
 		require dirname(__FILE__) . '/' . $class . '.php';
 
 		return true;
