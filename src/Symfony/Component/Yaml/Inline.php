@@ -175,7 +175,7 @@ class Symfony_Component_Yaml_Inline
                 $output = $match[1];
                 $i += strlen($output);
             } else {
-                throw new ParseException(sprintf('Malformed inline YAML string (%s).', $scalar));
+                throw new Symfony_Component_Yaml_ParseException(sprintf('Malformed inline YAML string (%s).', $scalar));
             }
 
             $output = $evaluate ? self::evaluateScalar($output) : $output;
