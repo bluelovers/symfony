@@ -80,7 +80,7 @@ class Symfony_Component_Yaml_Yaml
 
         try {
             return $yaml->parse($input);
-        } catch (ParseException $e) {
+        } catch (Symfony_Component_Yaml_ParseException $e) {
             if ($file) {
                 $e->setParsedFile($file);
             }
