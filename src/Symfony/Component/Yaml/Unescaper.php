@@ -16,7 +16,7 @@ namespace Symfony\Component\Yaml;
  *
  * @author Matthew Lewinski <matthew@lewinski.org>
  */
-class Unescaper
+class Symfony_Component_Yaml_Unescaper
 {
     // Parser and Inline assume UTF-8 encoding, so escaped Unicode characters
     // must be converted to that encoding.
