@@ -224,7 +224,7 @@ class Symfony_Component_Yaml_Parser
                         $error = 'Unable to parse.';
                 }
 
-                throw new ParseException($error, $this->getRealCurrentLineNb() + 1, $this->currentLine);
+                throw new Symfony_Component_Yaml_ParseException($error, $this->getRealCurrentLineNb() + 1, $this->currentLine);
             }
 
             if ($isRef) {
