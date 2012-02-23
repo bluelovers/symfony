@@ -355,7 +355,7 @@ class Symfony_Component_Yaml_Parser
             }
 
             if (!array_key_exists($value, $this->refs)) {
-                throw new ParseException(sprintf('Reference "%s" does not exist.', $value), $this->currentLine);
+                throw new Symfony_Component_Yaml_ParseException(sprintf('Reference "%s" does not exist.', $value), $this->currentLine);
             }
 
             return $this->refs[$value];
