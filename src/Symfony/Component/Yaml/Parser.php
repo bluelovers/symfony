@@ -305,7 +305,7 @@ class Symfony_Component_Yaml_Parser
 
                 break;
             } else {
-                throw new ParseException('Indentation problem.', $this->getRealCurrentLineNb() + 1, $this->currentLine);
+                throw new Symfony_Component_Yaml_ParseException('Indentation problem.', $this->getRealCurrentLineNb() + 1, $this->currentLine);
             }
         }
 
