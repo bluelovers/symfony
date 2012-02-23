@@ -106,7 +106,7 @@ class Symfony_Component_Yaml_Parser
             } elseif (preg_match('#^(?P<key>'.Symfony_Component_Yaml_Inline::REGEX_QUOTED_STRING.'|[^ \'"\[\{].*?) *\:(\s+(?P<value>.+?))?\s*$#u', $this->currentLine, $values)) {
                 try {
                     $key = Symfony_Component_Yaml_Inline::parseScalar($values['key']);
-                } catch (ParseException $e) {
+                } catch (Symfony_Component_Yaml_ParseException $e) {
                     $e->setParsedLine($this->getRealCurrentLineNb() + 1);
                     $e->setSnippet($this->currentLine);
 
