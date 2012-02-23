@@ -254,7 +254,7 @@ class Symfony_Component_Yaml_Inline
                         // embedded mapping?
                         try {
                             $value = self::parseMapping('{'.$value.'}');
-                        } catch (\InvalidArgumentException $e) {
+                        } catch (InvalidArgumentException $e) {
                             // no, it's not
                         }
                     }
