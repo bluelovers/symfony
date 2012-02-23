@@ -76,7 +76,7 @@ class Symfony_Component_Yaml_Yaml
             }
         }
 
-        $yaml = new Parser();
+        $yaml = new Symfony_Component_Yaml_Parser();
 
         try {
             return $yaml->parse($input);
