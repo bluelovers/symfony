@@ -140,6 +140,6 @@ class Symfony_Component_Yaml_Unescaper
             return mb_convert_encoding($value, $to, $from);
         }
 
-        throw new \RuntimeException('No suitable convert encoding function (install the iconv or mbstring extension).');
+        throw new RuntimeException('No suitable convert encoding function (install the iconv or mbstring extension).');
     }
 }
