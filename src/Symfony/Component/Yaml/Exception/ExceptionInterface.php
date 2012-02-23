@@ -18,6 +18,6 @@
  *
  * @api
  */
-interface Symfony_Component_Yaml_ExceptionInterface
+interface Symfony_Component_Yaml_Exception_ExceptionInterface
 {
 }

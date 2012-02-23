@@ -18,6 +18,6 @@
  *
  * @api
  */
-class Symfony_Component_Yaml_Exception_DumpException extends RuntimeException implements Symfony_Component_Yaml_ExceptionInterface
+class Symfony_Component_Yaml_Exception_DumpException extends RuntimeException implements Symfony_Component_Yaml_Exception_ExceptionInterface
 {
 }
