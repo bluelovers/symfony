@@ -331,7 +331,7 @@ class Symfony_Component_Yaml_Inline
             }
         }
 
-        throw new ParseException(sprintf('Malformed inline YAML string %s', $mapping));
+        throw new Symfony_Component_Yaml_ParseException(sprintf('Malformed inline YAML string %s', $mapping));
     }
 
     /**
