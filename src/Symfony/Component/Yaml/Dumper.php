@@ -33,7 +33,7 @@ class Symfony_Component_Yaml_Dumper
         $prefix = $indent ? str_repeat(' ', $indent) : '';
 
         if ($inline <= 0 || !is_array($input) || empty($input)) {
-            $output .= $prefix.Inline::dump($input);
+            $output .= $prefix.Symfony_Component_Yaml_Inline::dump($input);
         } else {
             $isAHash = array_keys($input) !== range(0, count($input) - 1);
 
