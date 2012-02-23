@@ -90,7 +90,7 @@ class Symfony_Component_Yaml_Parser
                     ) {
                         // this is a compact notation element, add to next block and parse
                         $c = $this->getRealCurrentLineNb();
-                        $parser = new Parser($c);
+                        $parser = new Symfony_Component_Yaml_Parser($c);
                         $parser->refs =& $this->refs;
 
                         $block = $values['value'];
