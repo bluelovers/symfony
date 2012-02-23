@@ -132,7 +132,7 @@ class Symfony_Component_Yaml_Parser
 
                         $merged = array();
                         if (!is_array($parsed)) {
-                            throw new ParseException('YAML merge keys used with a scalar value instead of an array.', $this->getRealCurrentLineNb() + 1, $this->currentLine);
+                            throw new Symfony_Component_Yaml_ParseException('YAML merge keys used with a scalar value instead of an array.', $this->getRealCurrentLineNb() + 1, $this->currentLine);
                         } elseif (isset($parsed[0])) {
                             // Numeric array, merge individual elements
                             foreach (array_reverse($parsed) as $parsedItem) {
