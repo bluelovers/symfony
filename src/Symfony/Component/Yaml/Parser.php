@@ -103,7 +103,7 @@ class Symfony_Component_Yaml_Parser
                         $data[] = $this->parseValue($values['value']);
                     }
                 }
-            } elseif (preg_match('#^(?P<key>'.Inline::REGEX_QUOTED_STRING.'|[^ \'"\[\{].*?) *\:(\s+(?P<value>.+?))?\s*$#u', $this->currentLine, $values)) {
+            } elseif (preg_match('#^(?P<key>'.Symfony_Component_Yaml_Inline::REGEX_QUOTED_STRING.'|[^ \'"\[\{].*?) *\:(\s+(?P<value>.+?))?\s*$#u', $this->currentLine, $values)) {
                 try {
                     $key = Inline::parseScalar($values['key']);
                 } catch (ParseException $e) {
