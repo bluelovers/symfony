@@ -276,7 +276,7 @@ class Symfony_Component_Yaml_Parser
             $newIndent = $this->getCurrentLineIndentation();
 
             if (!$this->isCurrentLineEmpty() && 0 == $newIndent) {
-                throw new ParseException('Indentation problem.', $this->getRealCurrentLineNb() + 1, $this->currentLine);
+                throw new Symfony_Component_Yaml_ParseException('Indentation problem.', $this->getRealCurrentLineNb() + 1, $this->currentLine);
             }
         } else {
             $newIndent = $indentation;
