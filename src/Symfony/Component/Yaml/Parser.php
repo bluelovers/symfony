@@ -51,7 +51,7 @@ class Symfony_Component_Yaml_Parser
         $this->lines = explode("\n", $this->cleanup($value));
 
         if (function_exists('mb_detect_encoding') && false === mb_detect_encoding($value, 'UTF-8', true)) {
-            throw new ParseException('The YAML value does not appear to be valid UTF-8.');
+            throw new Symfony_Component_Yaml_ParseException('The YAML value does not appear to be valid UTF-8.');
         }
 
         if (function_exists('mb_internal_encoding') && ((int) ini_get('mbstring.func_overload')) & 2) {
