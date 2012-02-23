@@ -18,6 +18,6 @@ namespace Symfony\Component\Yaml\Exception;
  *
  * @api
  */
-interface ExceptionInterface
+interface Symfony_Component_Yaml_ExceptionInterface
 {
 }
