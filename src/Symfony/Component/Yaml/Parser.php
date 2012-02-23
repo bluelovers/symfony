@@ -369,7 +369,7 @@ class Symfony_Component_Yaml_Parser
 
         try {
             return Inline::parse($value);
-        } catch (ParseException $e) {
+        } catch (Symfony_Component_Yaml_ParseException $e) {
             $e->setParsedLine($this->getRealCurrentLineNb() + 1);
             $e->setSnippet($this->currentLine);
 
