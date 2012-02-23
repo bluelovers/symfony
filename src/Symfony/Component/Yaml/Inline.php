@@ -100,7 +100,7 @@ class Symfony_Component_Yaml_Inline
                 return $repr;
             case Symfony_Component_Yaml_Escaper::requiresDoubleQuoting($value):
                 return Symfony_Component_Yaml_Escaper::escapeWithDoubleQuotes($value);
-            case Escaper::requiresSingleQuoting($value):
+            case Symfony_Component_Yaml_Escaper::requiresSingleQuoting($value):
                 return Escaper::escapeWithSingleQuotes($value);
             case '' == $value:
                 return "''";
