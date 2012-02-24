@@ -80,7 +80,7 @@ class Symfony_Component_Yaml_Parser
                 // array
                 if (!isset($values['value']) || '' == trim($values['value'], ' ') || 0 === strpos(ltrim($values['value'], ' '), '#')) {
                     $c = $this->getRealCurrentLineNb() + 1;
-                    $parser = new Parser($c);
+                    $parser = new Symfony_Component_Yaml_Parser($c);
                     $parser->refs =& $this->refs;
                     $data[] = $parser->parse($this->getNextEmbedBlock());
                 } else {
