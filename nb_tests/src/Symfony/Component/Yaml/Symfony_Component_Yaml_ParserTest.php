@@ -97,9 +97,9 @@ EOF;
 
     public function testObjectsSupport()
     {
-        $b = array('foo' => new B(), 'bar' => 1);
+        $b = array('foo' => new Symfony_Component_Yaml_ParserTest_B(), 'bar' => 1);
         $this->assertEquals($this->parser->parse(<<<EOF
-foo: !!php/object:O:30:"Symfony_Component_Yaml_ParserTest_B":1:{s:1:"b";s:3:"foo";}
+foo: !!php/object:O:35:"Symfony_Component_Yaml_ParserTest_B":1:{s:1:"b";s:3:"foo";}
 bar: 1
 EOF
         ), $b, '->parse() is able to dump objects');
