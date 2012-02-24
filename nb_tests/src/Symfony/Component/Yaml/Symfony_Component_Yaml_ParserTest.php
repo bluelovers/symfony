@@ -131,7 +131,7 @@ EOF
     }
 }
 
-class B
+class Symfony_Component_Yaml_ParserTest_B
 {
     public $b = 'foo';
 }
