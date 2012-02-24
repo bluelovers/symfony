@@ -29,7 +29,7 @@ class Symfony_Component_Yaml_InlineTest extends PHPUnit_Framework_TestCase
         }
 
         foreach ($testsForDump as $yaml => $value) {
-            $this->assertEquals($value, Symfony_Component_Yaml_Inline::parse(ISymfony_Component_Yaml_nline::dump($value)), 'check consistency');
+            $this->assertEquals($value, Symfony_Component_Yaml_Inline::parse(Symfony_Component_Yaml_Inline::dump($value)), 'check consistency');
         }
     }
 
