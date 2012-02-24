@@ -25,11 +25,11 @@ class Symfony_Component_Yaml_InlineTest extends PHPUnit_Framework_TestCase
         }
 
         foreach ($this->getTestsForParse() as $yaml => $value) {
-            $this->assertEquals($value, Symfony_Component_Yaml_Inline::parse(Inline::dump($value)), 'check consistency');
+            $this->assertEquals($value, Symfony_Component_Yaml_Inline::parse(Symfony_Component_Yaml_Inline::dump($value)), 'check consistency');
         }
 
         foreach ($testsForDump as $yaml => $value) {
-            $this->assertEquals($value, Symfony_Component_Yaml_Inline::parse(Inline::dump($value)), 'check consistency');
+            $this->assertEquals($value, Symfony_Component_Yaml_Inline::parse(ISymfony_Component_Yaml_nline::dump($value)), 'check consistency');
         }
     }
 
@@ -55,7 +55,7 @@ class Symfony_Component_Yaml_InlineTest extends PHPUnit_Framework_TestCase
     {
         $value = '686e444';
 
-        $this->assertSame($value, Symfony_Component_Yaml_Inline::parse(Inline::dump($value)));
+        $this->assertSame($value, Symfony_Component_Yaml_Inline::parse(Symfony_Component_Yaml_Inline::dump($value)));
     }
 
     protected function getTestsForParse()
