@@ -125,7 +125,7 @@ EOF
 
                 $this->fail('charsets other than UTF-8 are rejected.');
             } catch (Exception $e) {
-                 $this->assertInstanceOf('Symfony\Component\Yaml\Exception\ParseException', $e, 'charsets other than UTF-8 are rejected.');
+                 $this->assertInstanceOf('Symfony_Component_Yaml_Exception_ParseException', $e, 'charsets other than UTF-8 are rejected.');
             }
         }
     }
