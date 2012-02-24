@@ -162,13 +162,13 @@ EOF;
 
     public function testObjectsSupport()
     {
-        $a = array('foo' => new A(), 'bar' => 1);
+        $a = array('foo' => new Symfony_Component_Yaml_DumperTest_A(), 'bar' => 1);
 
-        $this->assertEquals('{ foo: !!php/object:O:30:"Symfony\Tests\Component\Yaml\A":1:{s:1:"a";s:3:"foo";}, bar: 1 }', $this->dumper->dump($a), '->dump() is able to dump objects');
+        $this->assertEquals('{ foo: !!php/object:O:35:"Symfony_Component_Yaml_DumperTest_A":1:{s:1:"a";s:3:"foo";}, bar: 1 }', $this->dumper->dump($a), '->dump() is able to dump objects');
     }
 }
 
-class A
+class Symfony_Component_Yaml_DumperTest_A
 {
     public $a = 'foo';
 }
