@@ -12,7 +12,7 @@ class Symfony_Component_Yaml_InlineTest extends PHPUnit_Framework_TestCase
 	public function testParse()
     {
         foreach ($this->getTestsForParse() as $yaml => $value) {
-            $this->assertEquals($value, Inline::parse($yaml), sprintf('::parse() converts an inline YAML to a PHP structure (%s)', $yaml));
+            $this->assertEquals($value, Symfony_Component_Yaml_Inline::parse($yaml), sprintf('::parse() converts an inline YAML to a PHP structure (%s)', $yaml));
         }
     }
 
@@ -21,15 +21,15 @@ class Symfony_Component_Yaml_InlineTest extends PHPUnit_Framework_TestCase
         $testsForDump = $this->getTestsForDump();
 
         foreach ($testsForDump as $yaml => $value) {
-            $this->assertEquals($yaml, Inline::dump($value), sprintf('::dump() converts a PHP structure to an inline YAML (%s)', $yaml));
+            $this->assertEquals($yaml, Symfony_Component_Yaml_Inline::dump($value), sprintf('::dump() converts a PHP structure to an inline YAML (%s)', $yaml));
         }
 
         foreach ($this->getTestsForParse() as $yaml => $value) {
-            $this->assertEquals($value, Inline::parse(Inline::dump($value)), 'check consistency');
+            $this->assertEquals($value, Symfony_Component_Yaml_Inline::parse(Inline::dump($value)), 'check consistency');
         }
 
         foreach ($testsForDump as $yaml => $value) {
-            $this->assertEquals($value, Inline::parse(Inline::dump($value)), 'check consistency');
+            $this->assertEquals($value, Symfony_Component_Yaml_Inline::parse(Inline::dump($value)), 'check consistency');
         }
     }
 
@@ -45,7 +45,7 @@ class Symfony_Component_Yaml_InlineTest extends PHPUnit_Framework_TestCase
             $this->markTestSkipped('Could not set any of required locales: ' . implode(", ", $required_locales));
         }
 
-        $this->assertEquals('1.2', Inline::dump(1.2));
+        $this->assertEquals('1.2', Symfony_Component_Yaml_Inline::dump(1.2));
         $this->assertContains('fr', strtolower(setlocale(LC_NUMERIC, 0)));
 
         setlocale(LC_ALL, $locale);
@@ -55,7 +55,7 @@ class Symfony_Component_Yaml_InlineTest extends PHPUnit_Framework_TestCase
     {
         $value = '686e444';
 
-        $this->assertSame($value, Inline::parse(Inline::dump($value)));
+        $this->assertSame($value, Symfony_Component_Yaml_Inline::parse(Inline::dump($value)));
     }
 
     protected function getTestsForParse()
